@@ -75,18 +75,18 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de Alumno";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(169, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // toolStripSeparator1
@@ -112,7 +112,7 @@
             this.consultarArticukosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2});
             this.consultarArticukosToolStripMenuItem.Name = "consultarArticukosToolStripMenuItem";
-            this.consultarArticukosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultarArticukosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.consultarArticukosToolStripMenuItem.Text = "Consultar Artículos";
             this.consultarArticukosToolStripMenuItem.Click += new System.EventHandler(this.consultarArticukosToolStripMenuItem_Click);
             // 
@@ -129,9 +129,8 @@
             // exportarDatosToolStripMenuItem
             // 
             this.exportarDatosToolStripMenuItem.Name = "exportarDatosToolStripMenuItem";
-            this.exportarDatosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportarDatosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
             this.exportarDatosToolStripMenuItem.Text = "Exportar a CSV";
-            
             // 
             // toolStripButton1
             // 
@@ -147,7 +146,7 @@
             // artículoToolStripMenuItem
             // 
             this.artículoToolStripMenuItem.Name = "artículoToolStripMenuItem";
-            this.artículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.artículoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.artículoToolStripMenuItem.Text = "Cargar Artículo";
             this.artículoToolStripMenuItem.Click += new System.EventHandler(this.artículoToolStripMenuItem_Click);
             // 
@@ -162,7 +161,7 @@
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Menú Principal";
+            this.Text = "Menú Principal - CyberStock";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);

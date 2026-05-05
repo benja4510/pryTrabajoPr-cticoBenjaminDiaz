@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gboDatos = new System.Windows.Forms.GroupBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCosto = new System.Windows.Forms.TextBox();
             this.cmbRubros = new System.Windows.Forms.ComboBox();
@@ -38,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtStock = new System.Windows.Forms.TextBox();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
@@ -67,6 +67,13 @@
             this.gboDatos.TabStop = false;
             this.gboDatos.Text = "Datos del Producto";
             // 
+            // txtStock
+            // 
+            this.txtStock.Location = new System.Drawing.Point(351, 150);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(100, 24);
+            this.txtStock.TabIndex = 1;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -86,6 +93,10 @@
             // cmbRubros
             // 
             this.cmbRubros.FormattingEnabled = true;
+            this.cmbRubros.Items.AddRange(new object[] {
+            "Repuesto",
+            "Accesorio",
+            "Insumo"});
             this.cmbRubros.Location = new System.Drawing.Point(160, 110);
             this.cmbRubros.Name = "cmbRubros";
             this.cmbRubros.Size = new System.Drawing.Size(145, 26);
@@ -141,13 +152,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Código:";
             // 
-            // txtStock
-            // 
-            this.txtStock.Location = new System.Drawing.Point(351, 150);
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(100, 24);
-            this.txtStock.TabIndex = 1;
-            // 
             // btnGrabar
             // 
             this.btnGrabar.ForeColor = System.Drawing.Color.MidnightBlue;
@@ -194,7 +198,9 @@
             this.Controls.Add(this.gboDatos);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "frmAgregarArtículo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Nuevo Artículo - CyberStock";
+            this.Load += new System.EventHandler(this.frmAgregarArtículo_Load);
             this.gboDatos.ResumeLayout(false);
             this.gboDatos.PerformLayout();
             this.ResumeLayout(false);

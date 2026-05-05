@@ -29,6 +29,6 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             frmAgregar.ShowDialog();
         }
 
-       
+     
     }
 }

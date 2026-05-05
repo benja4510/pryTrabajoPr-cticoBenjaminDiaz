@@ -19,20 +19,19 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            
             if (cboRubros.SelectedIndex != -1)
             {
-                string rubro = cboRubros.SelectedItem.ToString();
-
-                // Instanciamos la clase y llamamos al método
                 clsArticulos objArticulo = new clsArticulos();
-                objArticulo.ListarPorRubro(dgvConsulta, rubro, lblCantidad, lblTotal);
+
+                // Pasamos todo: la grilla, el texto del combo y los dos labels de abajo
+                objArticulo.Consultar(dgvConsulta, cboRubros.Text, lblCantidad, lblTotal);
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un rubro primero.");
+                MessageBox.Show("Por favor, seleccione un rubro.");
             }
         }
+        
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
@@ -67,6 +66,21 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             }
         }
 
-    } 
+        private void frmConsultar_Load(object sender, EventArgs e)
+        {
+            // Creamos el objeto para usar la clase rubros
+            clsRubros objRubros = new clsRubros();
+            
+           
+
+            // Opcional: para que no empiece vacío el combo
+            if (cboRubros.Items.Count > 0)
+            {
+                cboRubros.SelectedIndex = 0;
+            }
+        }
+
+    }
+    
 }
 

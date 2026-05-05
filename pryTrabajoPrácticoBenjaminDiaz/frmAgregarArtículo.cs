@@ -68,5 +68,15 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                 this.Close();
             }
         }
+
+        private void frmAgregarArtículo_Load(object sender, EventArgs e)
+        {
+            // Creamos el objeto de la clase Rubros
+            clsRubros objRubros = new clsRubros();
+
+            
+            // Opcional: que el cursor empiece en el código
+            txtCodigo.Focus();
+        }
     }
 }

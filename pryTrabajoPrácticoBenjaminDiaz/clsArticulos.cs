@@ -10,17 +10,23 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 {
     internal class clsArticulos
     {
-        // El archivo debe estar en la carpeta bin/Debug
         private string RutaArchivo = "Articulos.csv";
 
-        public void ListarPorRubro(DataGridView Grilla, string rubroBuscado, Label lblCant, Label lblTot)
+        public void Grabar(string codigo, string desc, string rubro, string costo, string stock)
+        {
+            StreamWriter sw = new StreamWriter(RutaArchivo, true);
+            
+            sw.WriteLine(codigo + ";" + desc + ";" + rubro + ";" + costo + ";" + stock);
+            sw.Close();
+        }
+
+        public void Consultar(DataGridView Grilla, string rubroBuscado, Label lblCantidad, Label lblTotal)
         {
             int cantidad = 0;
             decimal totalGeneral = 0;
 
             Grilla.Rows.Clear();
 
-            // Validación simple de existencia
             if (File.Exists(RutaArchivo))
             {
                 StreamReader sr = new StreamReader(RutaArchivo);
@@ -28,74 +34,65 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                 while (!sr.EndOfStream)
                 {
                     string linea = sr.ReadLine();
-                    string[] VecDatos = linea.Split(',');
-
-                    // Comparamos el rubro (suponiendo que está en la posición 3)
-                    if (VecDatos[3] == rubroBuscado)
+                    if (!string.IsNullOrEmpty(linea))
                     {
-                        decimal costo = Convert.ToDecimal(VecDatos[4]);
-                        int stock = Convert.ToInt32(VecDatos[5]);
-                        decimal valorFila = costo * stock;
+                        string[] VecDatos = linea.Split(';');
 
-                        Grilla.Rows.Add(VecDatos[0], VecDatos[1], costo, stock, valorFila);
+                        if (VecDatos.Length >= 5)
+                        {
+                            if (VecDatos[2].Trim().ToUpper() == rubroBuscado.Trim().ToUpper())
+                            {
+                                decimal costo = Convert.ToDecimal(VecDatos[3]);
+                                int stock = Convert.ToInt32(VecDatos[4]);
+                                decimal valorFila = costo * stock;
 
-                        cantidad++;
-                        totalGeneral += valorFila;
+                                Grilla.Rows.Add(VecDatos[0], VecDatos[1], costo, stock, valorFila);
+
+                                // SUMAMOS para los totales
+                                cantidad++;
+                                totalGeneral += valorFila;
+                            }
+                        }
                     }
                 }
                 sr.Close();
 
-                // Actualización de etiquetas
-                lblCant.Text = "Cantidad de Artículos: " + cantidad.ToString("00");
-                lblTot.Text = "Total Valor Stock: " + totalGeneral.ToString("C2");
-            }
-            else
-            {
-                MessageBox.Show("Archivo no encontrado.");
+                // ACTUALIZAMOS las etiquetas al terminar el ciclo
+                lblCantidad.Text = "Cantidad de Artículos: " + cantidad.ToString();
+                lblTotal.Text = "Total Valor Stock: " + totalGeneral.ToString("C2");
             }
         }
 
         public void Exportar(string rubroBuscado)
         {
             string RutaExportar = "Consulta_" + rubroBuscado + ".csv";
-
-            // Creamos el archivo de destino (false para sobreescribir)
             StreamWriter sw = new StreamWriter(RutaExportar, false);
-            sw.WriteLine("Codigo,Descripcion,Costo,Stock,ValorTotal");
+            // Tip para Excel: le decimos que el separador es punto y coma
+            sw.WriteLine("sep=;");
+            sw.WriteLine("Codigo;Descripcion;Rubro;Costo;Stock;Total");
 
-            // Abrimos el origen para leer
-            StreamReader sr = new StreamReader(RutaArchivo);
-
-            while (!sr.EndOfStream)
+            if (File.Exists(RutaArchivo))
             {
-                string linea = sr.ReadLine();
-                string[] VecDatos = linea.Split(',');
-
-                if (VecDatos[3] == rubroBuscado)
+                StreamReader sr = new StreamReader(RutaArchivo);
+                while (!sr.EndOfStream)
                 {
-                    decimal costo = Convert.ToDecimal(VecDatos[4]);
-                    int stock = Convert.ToInt32(VecDatos[5]);
-                    decimal valorFila = costo * stock;
-
-                    sw.WriteLine(VecDatos[0] + "," + VecDatos[1] + "," + costo + "," + stock + "," + valorFila);
+                    string linea = sr.ReadLine();
+                    if (!string.IsNullOrEmpty(linea))
+                    {
+                        string[] VecDatos = linea.Split(';');
+                        if (VecDatos[2].Trim().ToUpper() == rubroBuscado.Trim().ToUpper())
+                        {
+                            decimal vTotal = Convert.ToDecimal(VecDatos[3]) * Convert.ToDecimal(VecDatos[4]);
+                            sw.WriteLine(VecDatos[0] + ";" + VecDatos[1] + ";" + VecDatos[2] + ";" + VecDatos[3] + ";" + VecDatos[4] + ";" + vTotal);
+                        }
+                    }
                 }
+                sr.Close();
             }
-
-            sr.Close();
             sw.Close();
-
             MessageBox.Show("Archivo '" + RutaExportar + "' generado con éxito.");
         }
-        public void Grabar(string codigo, string desc, string rubro, string costo, string stock)
-        {
-            // Abrimos en modo 'true' para agregar al final (Append)
-            StreamWriter sw = new StreamWriter(RutaArchivo, true);
-
-            // Escribimos la línea con el mismo formato que veníamos leyendo
-            sw.WriteLine(codigo + "," + desc + "," + rubro + "," + costo + "," + stock);
-
-            sw.Close();
-        }
     }
+
 }
 
