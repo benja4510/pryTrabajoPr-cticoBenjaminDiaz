@@ -26,7 +26,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
                 // Instanciamos la clase y llamamos al método
                 clsArticulos objArticulo = new clsArticulos();
-                objArticulo.ListarPorRubro(dgvArticulos, rubro, lblCantidad, lblTotal);
+                objArticulo.ListarPorRubro(dgvConsulta, rubro, lblCantidad, lblTotal);
             }
             else
             {
@@ -48,5 +48,25 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                 MessageBox.Show("Seleccione un rubro para exportar los datos correspondientes.");
             }
         }
-    }
+        private void exportarDatosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RealizarExportacion(); 
+        }
+
+        
+        private void RealizarExportacion()
+        {
+            if (cboRubros.SelectedIndex != -1)
+            {
+                clsArticulos objArticulo = new clsArticulos();
+                objArticulo.Exportar(cboRubros.Text);
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un rubro.");
+            }
+        }
+
+    } 
 }
+

@@ -17,6 +17,18 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             InitializeComponent();
         }
 
-        
+        private void consultarArticukosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultar frmConsulta = new frmConsultar();
+            frmConsulta.ShowDialog();
+        }
+
+        private void artículoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarArtículo frmAgregar = new frmAgregarArtículo();
+            frmAgregar.ShowDialog();
+        }
+
+       
     }
 }

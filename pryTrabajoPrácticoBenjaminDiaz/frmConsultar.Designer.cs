@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gboBusqueda = new System.Windows.Forms.GroupBox();
+            this.btnExportar = new System.Windows.Forms.Button();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            this.cboRubros = new System.Windows.Forms.ComboBox();
+            this.lblRubro = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
             this.colCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,10 +45,6 @@
             this.colCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblRubro = new System.Windows.Forms.Label();
-            this.cboRubros = new System.Windows.Forms.ComboBox();
-            this.btnMostrar = new System.Windows.Forms.Button();
-            this.btnExportar = new System.Windows.Forms.Button();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.gboBusqueda.SuspendLayout();
@@ -66,6 +66,45 @@
             this.gboBusqueda.TabIndex = 0;
             this.gboBusqueda.TabStop = false;
             this.gboBusqueda.Text = "Busqueda de Articulos";
+            // 
+            // btnExportar
+            // 
+            this.btnExportar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnExportar.Location = new System.Drawing.Point(434, 45);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(89, 35);
+            this.btnExportar.TabIndex = 4;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.btnMostrar.Location = new System.Drawing.Point(329, 45);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(89, 35);
+            this.btnMostrar.TabIndex = 2;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
+            // cboRubros
+            // 
+            this.cboRubros.FormattingEnabled = true;
+            this.cboRubros.Location = new System.Drawing.Point(189, 49);
+            this.cboRubros.Name = "cboRubros";
+            this.cboRubros.Size = new System.Drawing.Size(121, 28);
+            this.cboRubros.TabIndex = 3;
+            // 
+            // lblRubro
+            // 
+            this.lblRubro.AutoSize = true;
+            this.lblRubro.Location = new System.Drawing.Point(16, 52);
+            this.lblRubro.Name = "lblRubro";
+            this.lblRubro.Size = new System.Drawing.Size(156, 20);
+            this.lblRubro.TabIndex = 2;
+            this.lblRubro.Text = "Seleccione Rubro:";
             // 
             // dgvConsulta
             // 
@@ -89,90 +128,51 @@
             // colCodigo
             // 
             this.colCodigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.NullValue = null;
-            this.colCodigo.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.colCodigo.DefaultCellStyle = dataGridViewCellStyle1;
             this.colCodigo.HeaderText = "Código";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.ReadOnly = true;
             // 
             // colDescripcion
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.NullValue = null;
-            this.colDescripcion.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.colDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.colDescripcion.HeaderText = "Descripción";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.ReadOnly = true;
             // 
             // colCosto
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "C2";
-            dataGridViewCellStyle13.NullValue = null;
-            this.colCosto.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colCosto.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCosto.HeaderText = "Costo";
             this.colCosto.Name = "colCosto";
             this.colCosto.ReadOnly = true;
             // 
             // colStock
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle14.Format = "N0";
-            dataGridViewCellStyle14.NullValue = null;
-            this.colStock.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colStock.DefaultCellStyle = dataGridViewCellStyle4;
             this.colStock.HeaderText = "Stock";
             this.colStock.Name = "colStock";
             this.colStock.ReadOnly = true;
             // 
             // colValor
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Format = "C2";
-            dataGridViewCellStyle15.NullValue = null;
-            this.colValor.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colValor.DefaultCellStyle = dataGridViewCellStyle5;
             this.colValor.HeaderText = "Valor en Stock";
             this.colValor.Name = "colValor";
             this.colValor.ReadOnly = true;
-            // 
-            // lblRubro
-            // 
-            this.lblRubro.AutoSize = true;
-            this.lblRubro.Location = new System.Drawing.Point(16, 52);
-            this.lblRubro.Name = "lblRubro";
-            this.lblRubro.Size = new System.Drawing.Size(156, 20);
-            this.lblRubro.TabIndex = 2;
-            this.lblRubro.Text = "Seleccione Rubro:";
-            // 
-            // cboRubros
-            // 
-            this.cboRubros.FormattingEnabled = true;
-            this.cboRubros.Location = new System.Drawing.Point(189, 49);
-            this.cboRubros.Name = "cboRubros";
-            this.cboRubros.Size = new System.Drawing.Size(121, 28);
-            this.cboRubros.TabIndex = 3;
-            // 
-            // btnMostrar
-            // 
-            this.btnMostrar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnMostrar.Location = new System.Drawing.Point(329, 45);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(89, 35);
-            this.btnMostrar.TabIndex = 2;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
-            // 
-            // btnExportar
-            // 
-            this.btnExportar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnExportar.Location = new System.Drawing.Point(434, 45);
-            this.btnExportar.Name = "btnExportar";
-            this.btnExportar.Size = new System.Drawing.Size(89, 35);
-            this.btnExportar.TabIndex = 4;
-            this.btnExportar.Text = "Exportar";
-            this.btnExportar.UseVisualStyleBackColor = true;
-            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
             // lblCantidad
             // 

@@ -112,8 +112,9 @@
             this.consultarArticukosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripSeparator2});
             this.consultarArticukosToolStripMenuItem.Name = "consultarArticukosToolStripMenuItem";
-            this.consultarArticukosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.consultarArticukosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultarArticukosToolStripMenuItem.Text = "Consultar Artículos";
+            this.consultarArticukosToolStripMenuItem.Click += new System.EventHandler(this.consultarArticukosToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -128,8 +129,9 @@
             // exportarDatosToolStripMenuItem
             // 
             this.exportarDatosToolStripMenuItem.Name = "exportarDatosToolStripMenuItem";
-            this.exportarDatosToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.exportarDatosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exportarDatosToolStripMenuItem.Text = "Exportar a CSV";
+            
             // 
             // toolStripButton1
             // 
@@ -147,6 +149,7 @@
             this.artículoToolStripMenuItem.Name = "artículoToolStripMenuItem";
             this.artículoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.artículoToolStripMenuItem.Text = "Cargar Artículo";
+            this.artículoToolStripMenuItem.Click += new System.EventHandler(this.artículoToolStripMenuItem_Click);
             // 
             // Form1
             // 
