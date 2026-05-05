@@ -60,6 +60,7 @@
             this.gboDatos.Controls.Add(this.label2);
             this.gboDatos.Controls.Add(this.label1);
             this.gboDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboDatos.ForeColor = System.Drawing.Color.LightGray;
             this.gboDatos.Location = new System.Drawing.Point(42, 50);
             this.gboDatos.Name = "gboDatos";
             this.gboDatos.Size = new System.Drawing.Size(527, 204);
