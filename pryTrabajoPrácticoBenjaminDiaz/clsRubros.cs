@@ -21,7 +21,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                 while (!sr.EndOfStream)
                 {
                     string linea = sr.ReadLine();
-                    // Suponiendo que el archivo de rubros solo tiene el nombre
+                    
                     combo.Items.Add(linea);
                 }
                 sr.Close();

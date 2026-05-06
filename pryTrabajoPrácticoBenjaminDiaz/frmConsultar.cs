@@ -23,7 +23,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             {
                 clsArticulos objArticulo = new clsArticulos();
 
-                // Pasamos todo: la grilla, el texto del combo y los dos labels de abajo
+                
                 objArticulo.Consultar(dgvConsulta, cboRubros.Text, lblCantidad, lblTotal);
             }
             else
@@ -68,12 +68,12 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
         private void frmConsultar_Load(object sender, EventArgs e)
         {
-            // Creamos el objeto para usar la clase rubros
+            
             clsRubros objRubros = new clsRubros();
             
            
 
-            // Opcional: para que no empiece vacío el combo
+            
             if (cboRubros.Items.Count > 0)
             {
                 cboRubros.SelectedIndex = 0;

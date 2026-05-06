@@ -20,14 +20,13 @@ namespace pryTrabajoPrácticoBenjaminDiaz
         private void btnGrabar_Click(object sender, EventArgs e)
         {
             {
-                // 1. Validar que no haya campos vacíos (mínima validación estética)
+                
                 if (txtCodigo.Text != "" && txtDescripcion.Text != "" && cmbRubros.SelectedIndex != -1)
                 {
-                    // 2. Instanciar la clase
+                    
                     clsArticulos objArticulo = new clsArticulos();
 
-                    // 3. Llamar al método grabar (el que creamos anteriormente)
-                    // Pasamos los textos de los controles como parámetros
+                    
                     objArticulo.Grabar(
                         txtCodigo.Text,
                         txtDescripcion.Text,
@@ -36,7 +35,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                         txtStock.Text
                     );
 
-                    // 4. Feedback al usuario y limpieza
+                    
                     MessageBox.Show("Artículo cargado exitosamente en CyberStock", "Éxito");
                     LimpiarControles();
                 }
@@ -52,8 +51,8 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             txtDescripcion.Clear();
             txtCosto.Text = "0";
             txtStock.Text = "0";
-            cmbRubros.SelectedIndex = -1; // Deselecciona el combo
-            txtCodigo.Focus();           // Deja el cursor listo para el siguiente código
+            cmbRubros.SelectedIndex = -1; 
+            txtCodigo.Focus();           
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -64,18 +63,18 @@ namespace pryTrabajoPrácticoBenjaminDiaz
         private void btnVolver_Click(object sender, EventArgs e)
         {
             {
-                // Cierra el formulario actual
+                
                 this.Close();
             }
         }
 
         private void frmAgregarArtículo_Load(object sender, EventArgs e)
         {
-            // Creamos el objeto de la clase Rubros
+            
             clsRubros objRubros = new clsRubros();
 
             
-            // Opcional: que el cursor empiece en el código
+            
             txtCodigo.Focus();
         }
     }

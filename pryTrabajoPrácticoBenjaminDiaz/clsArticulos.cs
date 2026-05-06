@@ -48,7 +48,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
                                 Grilla.Rows.Add(VecDatos[0], VecDatos[1], costo, stock, valorFila);
 
-                                // SUMAMOS para los totales
+                                
                                 cantidad++;
                                 totalGeneral += valorFila;
                             }
@@ -57,7 +57,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                 }
                 sr.Close();
 
-                // ACTUALIZAMOS las etiquetas al terminar el ciclo
+                
                 lblCantidad.Text = "Cantidad de Artículos: " + cantidad.ToString();
                 lblTotal.Text = "Total Valor Stock: " + totalGeneral.ToString("C2");
             }
@@ -67,7 +67,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
         {
             string RutaExportar = "Consulta_" + rubroBuscado + ".csv";
             StreamWriter sw = new StreamWriter(RutaExportar, false);
-            // Tip para Excel: le decimos que el separador es punto y coma
+            
             sw.WriteLine("sep=;");
             sw.WriteLine("Codigo;Descripcion;Rubro;Costo;Stock;Total");
 
