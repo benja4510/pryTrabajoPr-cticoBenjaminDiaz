@@ -10,24 +10,34 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 {
     internal class clsRubros
     {
-        private string RutaRubros = "Rubros.csv";
+
+        private string RutaArchivo = "Rubros.csv";
 
         public void LlenarCombo(ComboBox combo)
         {
+
             combo.Items.Clear();
-            if (File.Exists(RutaRubros))
+
+            if (File.Exists(RutaArchivo))
             {
-                StreamReader sr = new StreamReader(RutaRubros);
+                StreamReader sr = new StreamReader(RutaArchivo);
+
                 while (!sr.EndOfStream)
                 {
-                    string linea = sr.ReadLine();
-                    
-                    combo.Items.Add(linea);
+                    string rubro = sr.ReadLine();
+                    if (!string.IsNullOrEmpty(rubro))
+                    {
+                        combo.Items.Add(rubro);
+                    }
                 }
+
                 sr.Close();
             }
-            if (combo.Items.Count > 0) combo.SelectedIndex = 0;
+            else
+            {
+
+                combo.Items.Add("Sin Rubros");
+            }
         }
     }
 }
-

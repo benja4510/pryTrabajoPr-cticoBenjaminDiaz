@@ -70,12 +70,15 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
         private void frmAgregarArtículo_Load(object sender, EventArgs e)
         {
-            
             clsRubros objRubros = new clsRubros();
 
-            
-            
-            txtCodigo.Focus();
+            // Verificá que el nombre que pusiste en el diseño sea cboRubros
+            objRubros.LlenarCombo(cmbRubros);
+
+            if (cmbRubros.Items.Count > 0)
+            {
+                cmbRubros.SelectedIndex = 0;
+            }
         }
     }
 }

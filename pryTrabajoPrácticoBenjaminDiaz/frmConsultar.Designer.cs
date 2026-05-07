@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gboBusqueda = new System.Windows.Forms.GroupBox();
             this.btnExportar = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
@@ -93,9 +93,7 @@
             // 
             this.cboRubros.FormattingEnabled = true;
             this.cboRubros.Items.AddRange(new object[] {
-            "Repuesto",
-            "Accesorio",
-            "Insumo"});
+            ""});
             this.cboRubros.Location = new System.Drawing.Point(189, 49);
             this.cboRubros.Name = "cboRubros";
             this.cboRubros.Size = new System.Drawing.Size(121, 28);
@@ -132,48 +130,48 @@
             // colCodigo
             // 
             this.colCodigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.NullValue = null;
-            this.colCodigo.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.NullValue = null;
+            this.colCodigo.DefaultCellStyle = dataGridViewCellStyle1;
             this.colCodigo.HeaderText = "Código";
             this.colCodigo.Name = "colCodigo";
             this.colCodigo.ReadOnly = true;
             // 
             // colDescripcion
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.NullValue = null;
-            this.colDescripcion.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.NullValue = null;
+            this.colDescripcion.DefaultCellStyle = dataGridViewCellStyle2;
             this.colDescripcion.HeaderText = "Descripción";
             this.colDescripcion.Name = "colDescripcion";
             this.colDescripcion.ReadOnly = true;
             // 
             // colCosto
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "C2";
-            dataGridViewCellStyle23.NullValue = null;
-            this.colCosto.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.colCosto.DefaultCellStyle = dataGridViewCellStyle3;
             this.colCosto.HeaderText = "Costo";
             this.colCosto.Name = "colCosto";
             this.colCosto.ReadOnly = true;
             // 
             // colStock
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.Format = "N0";
-            dataGridViewCellStyle24.NullValue = null;
-            this.colStock.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Format = "N0";
+            dataGridViewCellStyle4.NullValue = null;
+            this.colStock.DefaultCellStyle = dataGridViewCellStyle4;
             this.colStock.HeaderText = "Stock";
             this.colStock.Name = "colStock";
             this.colStock.ReadOnly = true;
             // 
             // colValor
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle25.Format = "C2";
-            dataGridViewCellStyle25.NullValue = null;
-            this.colValor.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.colValor.DefaultCellStyle = dataGridViewCellStyle5;
             this.colValor.HeaderText = "Valor en Stock";
             this.colValor.Name = "colValor";
             this.colValor.ReadOnly = true;

@@ -68,19 +68,17 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
         private void frmConsultar_Load(object sender, EventArgs e)
         {
-            
             clsRubros objRubros = new clsRubros();
-            
-           
 
-            
+            objRubros.LlenarCombo(cboRubros);
+
             if (cboRubros.Items.Count > 0)
             {
                 cboRubros.SelectedIndex = 0;
             }
         }
-
     }
+ }
     
-}
+
 

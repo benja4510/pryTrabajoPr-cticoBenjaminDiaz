@@ -94,10 +94,6 @@
             // cmbRubros
             // 
             this.cmbRubros.FormattingEnabled = true;
-            this.cmbRubros.Items.AddRange(new object[] {
-            "Repuesto",
-            "Accesorio",
-            "Insumo"});
             this.cmbRubros.Location = new System.Drawing.Point(160, 110);
             this.cmbRubros.Name = "cmbRubros";
             this.cmbRubros.Size = new System.Drawing.Size(145, 26);
