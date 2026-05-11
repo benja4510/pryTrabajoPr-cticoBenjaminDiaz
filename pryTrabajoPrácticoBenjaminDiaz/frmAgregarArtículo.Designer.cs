@@ -42,7 +42,16 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
+            this.gboAviso = new System.Windows.Forms.GroupBox();
+            this.lblAviso = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.gboDatos.SuspendLayout();
+            this.gboAviso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // gboDatos
@@ -63,7 +72,7 @@
             this.gboDatos.ForeColor = System.Drawing.Color.LightGray;
             this.gboDatos.Location = new System.Drawing.Point(42, 50);
             this.gboDatos.Name = "gboDatos";
-            this.gboDatos.Size = new System.Drawing.Size(527, 204);
+            this.gboDatos.Size = new System.Drawing.Size(653, 204);
             this.gboDatos.TabIndex = 0;
             this.gboDatos.TabStop = false;
             this.gboDatos.Text = "Datos del Producto";
@@ -152,7 +161,7 @@
             // btnGrabar
             // 
             this.btnGrabar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnGrabar.Location = new System.Drawing.Point(142, 291);
+            this.btnGrabar.Location = new System.Drawing.Point(160, 291);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(104, 39);
             this.btnGrabar.TabIndex = 1;
@@ -163,7 +172,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.btnLimpiar.Location = new System.Drawing.Point(348, 291);
+            this.btnLimpiar.Location = new System.Drawing.Point(482, 291);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(104, 39);
             this.btnLimpiar.TabIndex = 2;
@@ -182,13 +191,82 @@
             this.btnVolver.UseVisualStyleBackColor = true;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
+            // gboAviso
+            // 
+            this.gboAviso.BackColor = System.Drawing.Color.Transparent;
+            this.gboAviso.Controls.Add(this.lblAviso);
+            this.gboAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gboAviso.ForeColor = System.Drawing.Color.White;
+            this.gboAviso.Location = new System.Drawing.Point(202, 368);
+            this.gboAviso.Name = "gboAviso";
+            this.gboAviso.Size = new System.Drawing.Size(499, 114);
+            this.gboAviso.TabIndex = 4;
+            this.gboAviso.TabStop = false;
+            this.gboAviso.Text = "AVISO";
+            // 
+            // lblAviso
+            // 
+            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAviso.Location = new System.Drawing.Point(17, 31);
+            this.lblAviso.Name = "lblAviso";
+            this.lblAviso.Size = new System.Drawing.Size(476, 73);
+            this.lblAviso.TabIndex = 0;
+            this.lblAviso.Text = "Gestión de Rubros: Cree y Edite (añadiendo rubros)  el archivo \'Rubros.csv\' en la" +
+    " carpeta Debug del proyecto  para actualizar los Rubros del sistema.  Asegurarse" +
+    " de eliminar  \".txt\" al final";
+            this.lblAviso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::pryTrabajoPrácticoBenjaminDiaz.Properties.Resources.Rubros_CSV;
+            this.pictureBox1.Location = new System.Drawing.Point(97, 519);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(606, 89);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::pryTrabajoPrácticoBenjaminDiaz.Properties.Resources.Rubros_CSV_txt;
+            this.pictureBox2.Location = new System.Drawing.Point(96, 637);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(607, 84);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Lime;
+            this.label6.Location = new System.Drawing.Point(39, 557);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(19, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "✔";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(39, 677);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "✖";
+            // 
             // frmAgregarArtículo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::pryTrabajoPrácticoBenjaminDiaz.Properties.Resources.cyberstock_bck;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(613, 450);
+            this.ClientSize = new System.Drawing.Size(739, 754);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.gboAviso);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnGrabar);
@@ -200,7 +278,11 @@
             this.Load += new System.EventHandler(this.frmAgregarArtículo_Load);
             this.gboDatos.ResumeLayout(false);
             this.gboDatos.PerformLayout();
+            this.gboAviso.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -220,5 +302,11 @@
         private System.Windows.Forms.Button btnGrabar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnVolver;
+        private System.Windows.Forms.GroupBox gboAviso;
+        private System.Windows.Forms.Label lblAviso;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

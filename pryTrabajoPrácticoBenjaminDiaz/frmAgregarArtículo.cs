@@ -36,7 +36,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
                     );
 
                     
-                    MessageBox.Show("Artículo cargado exitosamente en CyberStock", "Éxito");
+                    MessageBox.Show("Artículo cargado en CyberStock", "Éxito");
                     LimpiarControles();
                 }
                 else
@@ -72,7 +72,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
         {
             clsRubros objRubros = new clsRubros();
 
-            // Verificá que el nombre que pusiste en el diseño sea cboRubros
+            
             objRubros.LlenarCombo(cmbRubros);
 
             if (cmbRubros.Items.Count > 0)

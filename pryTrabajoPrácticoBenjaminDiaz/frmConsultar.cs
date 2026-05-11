@@ -28,7 +28,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un rubro.");
+                MessageBox.Show("Por Favor elija un rubro.");
             }
         }
         
@@ -44,7 +44,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             }
             else
             {
-                MessageBox.Show("Seleccione un rubro para exportar los datos correspondientes.");
+                MessageBox.Show("Elija un rubro para exportar los datos.");
             }
         }
         private void exportarDatosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -62,7 +62,7 @@ namespace pryTrabajoPrácticoBenjaminDiaz
             }
             else
             {
-                MessageBox.Show("Seleccione un rubro.");
+                MessageBox.Show("Elija un rubro.");
             }
         }
 
