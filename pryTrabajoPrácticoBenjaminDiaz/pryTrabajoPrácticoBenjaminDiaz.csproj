@@ -121,5 +121,11 @@
   <ItemGroup>
     <None Include="Resources\Rubros CSV txt.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyberstock fondo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cyberstock fondo1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

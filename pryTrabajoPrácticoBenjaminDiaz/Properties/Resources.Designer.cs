@@ -63,9 +63,9 @@ namespace pryTrabajoPrácticoBenjaminDiaz.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cyberstock {
+        internal static System.Drawing.Bitmap Cyberstock_fondo {
             get {
-                object obj = ResourceManager.GetObject("cyberstock", resourceCulture);
+                object obj = ResourceManager.GetObject("Cyberstock fondo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,49 +73,9 @@ namespace pryTrabajoPrácticoBenjaminDiaz.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cyberstock_bck {
+        internal static System.Drawing.Bitmap Cyberstock_fondo1 {
             get {
-                object obj = ResourceManager.GetObject("cyberstock bck", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rubros_CSV {
-            get {
-                object obj = ResourceManager.GetObject("Rubros CSV", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Rubros_CSV_txt {
-            get {
-                object obj = ResourceManager.GetObject("Rubros CSV txt", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap visto {
-            get {
-                object obj = ResourceManager.GetObject("visto", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap vistos {
-            get {
-                object obj = ResourceManager.GetObject("vistos", resourceCulture);
+                object obj = ResourceManager.GetObject("Cyberstock fondo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
