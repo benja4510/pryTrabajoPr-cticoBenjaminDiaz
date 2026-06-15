@@ -48,6 +48,9 @@
             this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.btnImprimir = new System.Windows.Forms.Button();
             this.gboBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.SuspendLayout();
@@ -199,6 +202,31 @@
             this.lblTotal.TabIndex = 3;
             this.lblTotal.Text = "Total Valor Stock: $ 0.00";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // btnImprimir
+            // 
+            this.btnImprimir.Location = new System.Drawing.Point(53, 388);
+            this.btnImprimir.Name = "btnImprimir";
+            this.btnImprimir.Size = new System.Drawing.Size(111, 39);
+            this.btnImprimir.TabIndex = 4;
+            this.btnImprimir.Text = "Imprimir Reporte";
+            this.btnImprimir.UseVisualStyleBackColor = true;
+            this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
+            // 
             // frmConsultar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +234,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(619, 449);
+            this.Controls.Add(this.btnImprimir);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblCantidad);
             this.Controls.Add(this.dgvConsulta);
@@ -238,5 +267,8 @@
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Label lblTotal;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button btnImprimir;
     }
 }

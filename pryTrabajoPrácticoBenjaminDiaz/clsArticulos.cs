@@ -1,98 +1,134 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.OleDb;
+using System.IO;
 
-namespace pryTrabajoPrácticoBenjaminDiaz
+internal class clsArticulos
 {
-    internal class clsArticulos
+    private string cadenaConexion = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD_TrabajoPractico.mdb;";
+
+    public void Grabar(string desc, string rubro, string costo)
     {
-        private string RutaArchivo = "Articulos.csv";
+        OleDbConnection conexion = new OleDbConnection(cadenaConexion);
+        OleDbCommand comando = new OleDbCommand();
 
-        public void Grabar(string codigo, string desc, string rubro, string costo, string stock)
+        comando.Connection = conexion;
+        comando.CommandType = CommandType.Text;
+
+        comando.CommandText = "INSERT INTO Articulos (Nombre_articulo, Precio, IdRubro) " +
+                              "VALUES (@desc, @precio, (SELECT TOP 1 IdRubro FROM Rubros WHERE Nombre_rubro = @rubro))";
+
+        comando.Parameters.AddWithValue("@desc", desc);
+        comando.Parameters.AddWithValue("@precio", Convert.ToDecimal(costo));
+        comando.Parameters.AddWithValue("@rubro", rubro);
+
+        try
         {
-            StreamWriter sw = new StreamWriter(RutaArchivo, true);
-            
-            sw.WriteLine(codigo + ";" + desc + ";" + rubro + ";" + costo + ";" + stock);
-            sw.Close();
+            conexion.Open();
+            comando.ExecuteNonQuery();
+            MessageBox.Show("Artículo cargado con éxito en la Base de Datos.", "Éxito");
         }
-
-        public void Consultar(DataGridView Grilla, string rubroBuscado, Label lblCantidad, Label lblTotal)
+        catch (Exception ex)
         {
-            int cantidad = 0;
-            decimal totalGeneral = 0;
-
-            Grilla.Rows.Clear();
-
-            if (File.Exists(RutaArchivo))
-            {
-                StreamReader sr = new StreamReader(RutaArchivo);
-
-                while (!sr.EndOfStream)
-                {
-                    string linea = sr.ReadLine();
-                    if (!string.IsNullOrEmpty(linea))
-                    {
-                        string[] VecDatos = linea.Split(';');
-
-                        if (VecDatos.Length >= 5)
-                        {
-                            if (VecDatos[2].Trim().ToUpper() == rubroBuscado.Trim().ToUpper())
-                            {
-                                decimal costo = Convert.ToDecimal(VecDatos[3]);
-                                int stock = Convert.ToInt32(VecDatos[4]);
-                                decimal valorFila = costo * stock;
-
-                                Grilla.Rows.Add(VecDatos[0], VecDatos[1], costo, stock, valorFila);
-
-                                
-                                cantidad++;
-                                totalGeneral += valorFila;
-                            }
-                        }
-                    }
-                }
-                sr.Close();
-
-                
-                lblCantidad.Text = "Cantidad de Artículos: " + cantidad.ToString();
-                lblTotal.Text = "Total Valor Stock: " + totalGeneral.ToString("C2");
-            }
+            MessageBox.Show("Error al grabar el artículo: " + ex.Message, "Error");
         }
-
-        public void Exportar(string rubroBuscado)
+        finally
         {
-            string RutaExportar = "Consulta_" + rubroBuscado + ".csv";
-            StreamWriter sw = new StreamWriter(RutaExportar, false);
-            
-            sw.WriteLine("sep=;");
-            sw.WriteLine("Codigo;Descripcion;Rubro;Costo;Stock;Total");
-
-            if (File.Exists(RutaArchivo))
-            {
-                StreamReader sr = new StreamReader(RutaArchivo);
-                while (!sr.EndOfStream)
-                {
-                    string linea = sr.ReadLine();
-                    if (!string.IsNullOrEmpty(linea))
-                    {
-                        string[] VecDatos = linea.Split(';');
-                        if (VecDatos[2].Trim().ToUpper() == rubroBuscado.Trim().ToUpper())
-                        {
-                            decimal vTotal = Convert.ToDecimal(VecDatos[3]) * Convert.ToDecimal(VecDatos[4]);
-                            sw.WriteLine(VecDatos[0] + ";" + VecDatos[1] + ";" + VecDatos[2] + ";" + VecDatos[3] + ";" + VecDatos[4] + ";" + vTotal);
-                        }
-                    }
-                }
-                sr.Close();
-            }
-            sw.Close();
-            MessageBox.Show("Archivo '" + RutaExportar + "' generado con éxito.");
+            conexion.Close();
         }
     }
 
-}
+    public void Consultar(DataGridView Grilla, string rubroBuscado, Label lblCantidad, Label lblTotal)
+    {
+        int cantidad = 0;
+        decimal totalGeneral = 0;
 
+        Grilla.Rows.Clear();
+
+        OleDbConnection conexion = new OleDbConnection(cadenaConexion);
+        OleDbCommand comando = new OleDbCommand();
+
+        comando.Connection = conexion;
+        comando.CommandType = CommandType.Text;
+
+       
+        comando.CommandText = "SELECT A.IdArticulo, A.Nombre_articulo, A.Precio, A.IdRubro " +
+                              "FROM Articulos A " +
+                              "INNER JOIN Rubros R ON A.IdRubro = R.IdRubro " +
+                              "WHERE R.Nombre_rubro = @rubro";
+
+        comando.Parameters.AddWithValue("@rubro", rubroBuscado);
+
+        try
+        {
+            conexion.Open();
+            OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+            DataTable tablaArticulos = new DataTable();
+            adaptador.Fill(tablaArticulos);
+
+            foreach (DataRow fila in tablaArticulos.Rows)
+            {
+                decimal costo = Convert.ToDecimal(fila["Precio"]);
+                int stock = 1; 
+                decimal valorFila = costo * stock;
+
+                
+                Grilla.Rows.Add(fila["IdArticulo"], fila["Nombre_articulo"], costo, stock, valorFila);
+
+                cantidad++;
+                totalGeneral += valorFila;
+            }
+
+            lblCantidad.Text = "Cantidad de Artículos: " + cantidad.ToString();
+            lblTotal.Text = "Total Valor Stock: " + totalGeneral.ToString("C2");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error al consultar datos: " + ex.Message, "Error");
+        }
+        finally
+        {
+            conexion.Close();
+        }
+    }
+
+
+    public void Exportar(string rubroBuscado, string rutaDestino)
+    {
+        try
+        {
+            StreamWriter sw = new StreamWriter(rutaDestino, false);
+            sw.WriteLine("sep=;");
+            sw.WriteLine("Codigo;Descripcion;Precio;Total");
+
+            OleDbConnection conexion = new OleDbConnection(cadenaConexion);
+
+            string sql = "SELECT A.IdArticulo, A.Nombre_articulo, A.Precio " +
+                         "FROM Articulos A " +
+                         "INNER JOIN Rubros R ON A.IdRubro = R.IdRubro " +
+                         "WHERE R.Nombre_rubro = @rubro";
+
+            OleDbCommand comando = new OleDbCommand(sql, conexion);
+            comando.Parameters.AddWithValue("@rubro", rubroBuscado);
+
+            conexion.Open();
+            OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+            DataTable dt = new DataTable();
+            adaptador.Fill(dt);
+
+            foreach (DataRow fila in dt.Rows)
+            {
+                sw.WriteLine(fila["IdArticulo"] + ";" + fila["Nombre_articulo"] + ";" + fila["Precio"] + ";" + fila["Precio"]);
+            }
+
+            sw.Close();
+            conexion.Close();
+            MessageBox.Show("Archivo exportado correctamente.", "Éxito");
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error al exportar: " + ex.Message);
+        }
+    }
+}

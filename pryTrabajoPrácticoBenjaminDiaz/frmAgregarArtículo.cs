@@ -19,30 +19,25 @@ namespace pryTrabajoPrácticoBenjaminDiaz
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+
+            if (txtDescripcion.Text.Trim() != "" && cmbRubros.SelectedIndex != -1 && txtCosto.Text.Trim() != "")
             {
+         
+                clsArticulos objArticulo = new clsArticulos();
+
+               
+
+
+                objArticulo.Grabar(txtDescripcion.Text, cmbRubros.Text, txtCosto.Text);
                 
-                if (txtCodigo.Text != "" && txtDescripcion.Text != "" && cmbRubros.SelectedIndex != -1)
-                {
-                    
-                    clsArticulos objArticulo = new clsArticulos();
 
-                    
-                    objArticulo.Grabar(
-                        txtCodigo.Text,
-                        txtDescripcion.Text,
-                        cmbRubros.Text,
-                        txtCosto.Text,
-                        txtStock.Text
-                    );
-
-                    
-                    MessageBox.Show("Artículo cargado en CyberStock", "Éxito");
-                    LimpiarControles();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Atención");
-                }
+                txtDescripcion.Clear();
+                txtCosto.Clear();
+                cmbRubros.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show("Por favor, complete todos los campos obligatorios antes de grabar.", "Atención");
             }
         }
         private void LimpiarControles()

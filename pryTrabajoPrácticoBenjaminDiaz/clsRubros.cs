@@ -1,43 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.OleDb;
 
-namespace pryTrabajoPrácticoBenjaminDiaz
+internal class clsRubros
 {
-    internal class clsRubros
+    
+    private string cadenaConexion = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\BD_TrabajoPractico.mdb;";
+
+    public void LlenarCombo(ComboBox combo)
     {
+        combo.Items.Clear();
 
-        private string RutaArchivo = "Rubros.csv";
+        
+        OleDbConnection conexion = new OleDbConnection(cadenaConexion);
+        OleDbCommand comando = new OleDbCommand();
 
-        public void LlenarCombo(ComboBox combo)
+        comando.Connection = conexion;
+        comando.CommandType = CommandType.Text;
+        comando.CommandText = "SELECT Nombre_rubro FROM Rubros ORDER BY Nombre_rubro ASC";
+
+        try
         {
+            conexion.Open();
 
-            combo.Items.Clear();
+         
+            OleDbDataAdapter adaptador = new OleDbDataAdapter(comando);
+            DataTable tablaRubros = new DataTable();
+            adaptador.Fill(tablaRubros);
 
-            if (File.Exists(RutaArchivo))
+            foreach (DataRow fila in tablaRubros.Rows)
             {
-                StreamReader sr = new StreamReader(RutaArchivo);
-
-                while (!sr.EndOfStream)
-                {
-                    string rubro = sr.ReadLine();
-                    if (!string.IsNullOrEmpty(rubro))
-                    {
-                        combo.Items.Add(rubro);
-                    }
-                }
-
-                sr.Close();
+                combo.Items.Add(fila["Nombre_rubro"].ToString());
             }
-            else
-            {
-
-                combo.Items.Add("Sin Rubros");
-            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Error al cargar rubros: " + ex.Message, "Error");
+            combo.Items.Add("Sin Rubros");
+        }
+        finally
+        {
+            conexion.Close();
         }
     }
 }
